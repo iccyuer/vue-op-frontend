@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 const name = 'vue' // page title
-const port = 9528 // dev port
+const port = 8888 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
