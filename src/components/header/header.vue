@@ -34,11 +34,11 @@ export default {
     }
   },
   created () {
-    console.log('constRouter', constantRouterMap)
+    // console.log('constRouter', constantRouterMap)
   },
   methods: {
     handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
   }
 }
