@@ -1,5 +1,6 @@
 import './item.scss'
 export default {
+  name: 'Item',
   props: {
     raw: {
       type: Object,

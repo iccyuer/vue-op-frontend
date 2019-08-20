@@ -11,7 +11,7 @@ const router = {
     {
       path: '/someone/llipsis',
       component: () => import('@/views/someone/llipsis'),
-      name: 'someone',
+      name: 'someoneL',
       meta: {
         title: 'llipsis'
       }
