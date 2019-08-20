@@ -4,6 +4,7 @@ import index from '@/views/index.vue'
 import directive from './modules/directive'
 import jsx from './modules/jsx'
 import someone from './modules/someone'
+import fetch from './modules/fetch'
 
 Vue.use(Router)
 
@@ -18,7 +19,8 @@ export const constantRouterMap = [
   },
   directive,
   jsx,
-  someone
+  someone,
+  fetch
 ]
 
 export default new Router({
