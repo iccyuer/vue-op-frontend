@@ -19,13 +19,14 @@ export default {
             item: val
           },
           scopedSlots: {
-
+            default: props => h('span', props.text.price),
+            header: props => h('span', props.text)
           }
         },
         'default slots'
       )
     }))
-    return h('div', [items])
+    return h('div', [<h2>slots</h2>, items])
   }
 }
 </script>
