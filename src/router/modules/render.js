@@ -47,6 +47,14 @@ const router = {
       meta: {
         title: 'render 组件'
       }
+    },
+    {
+      path: '/render/index6',
+      component: () => import('@/views/render/index6'),
+      name: 'renderIndex6',
+      meta: {
+        title: 'render 函数式组件'
+      }
     }
   ]
 }
