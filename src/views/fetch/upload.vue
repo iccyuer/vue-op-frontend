@@ -23,6 +23,7 @@ export default {
       // const isJPG = file.type === 'image/jpeg'
       // const isLt2M = file.size / 1024 / 1024 < 2
       // ----
+      // File --> blob
       let imageUrl = URL.createObjectURL(file)
       console.log('imageUrl', imageUrl)
       console.log('file', file)
