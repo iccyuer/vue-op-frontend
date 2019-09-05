@@ -6,6 +6,7 @@ import jsx from './modules/jsx'
 import render from './modules/render'
 import someone from './modules/someone'
 import fetch from './modules/fetch'
+import lbs from './modules/lbs'
 
 Vue.use(Router)
 
@@ -22,7 +23,8 @@ export const constantRouterMap = [
   jsx,
   render,
   someone,
-  fetch
+  fetch,
+  lbs
 ]
 
 export default new Router({
