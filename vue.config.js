@@ -65,8 +65,9 @@ module.exports = {
   // },
   configureWebpack: config => {
     config.name = name
-    cosnfig.resolve.alias
-      .set('assets', '@/assets')
+    config.resolve.alias =  {
+      '@': resolve('src')
+    }
     if (process.env.NODE_ENV === 'production') {
       // 去掉console.log
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
