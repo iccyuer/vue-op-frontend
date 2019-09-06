@@ -32,6 +32,13 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
+      },
+      'baidumap': {
+        target: 'https://api.map.baidu.com',
+        changeOrigin: true,
+        pathRewrite: {
+          ['^/baidumap']: ''
+        }
       }
     },
     // after: require('./mock/mock-server.js')
@@ -42,24 +49,47 @@ module.exports = {
       console.log('after')
     }
   },
-  configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
+  /*
+    configureWebpack的配合有两种形式
+    1.插件形式 2.函数形式
+  */
+  // configureWebpack: {
+  //   // provide the app's title in webpack's name field, so that
+  //   // it can be accessed in index.html to inject the correct title.
+  //   name: name,
+  //   resolve: {
+  //     alias: {
+  //       '@': resolve('src')
+  //     }
+  //   }
+  // },
+  configureWebpack: config => {
+    config.name = name
+    cosnfig.resolve.alias
+      .set('assets', '@/assets')
+    if (process.env.NODE_ENV === 'production') {
+      // 去掉console.log
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }
   },
   chainWebpack: (config) => {
-    // auto fix on save
-    config.module
-      .rule('eslint')
-      .use('eslint-loader')
-      .tap((options) => {
-        options.fix = true
-        return options
-      })
-    }
+    config
+      .when(process.env.NODE_ENV === 'production',
+        config => {
+        }
+      )
+    config
+      .when(process.env.NODE_ENV === 'development',
+        config => {
+          // auto fix on save
+          config.module
+          .rule('eslint')
+          .use('eslint-loader')
+          .tap((options) => {
+            options.fix = true
+            return options
+          })
+        }
+      )
+  }
 }
