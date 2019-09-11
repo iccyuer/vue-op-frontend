@@ -15,7 +15,7 @@ export default {
   },
   render (h) {
     /*
-      子组件在定义slot时,无法默认指定slot内容
+      子组件在定义slot时,可通过条件渲染定义默认slot
     */
     return h(
       'div',
@@ -34,7 +34,7 @@ export default {
           [
             this.$slots.default,
             this.$scopedSlots.default({ text: this.item }),
-            this.$scopedSlots.header({ text: this.total }, h('div', 'adas'))
+            this.$scopedSlots.header ? this.$scopedSlots.header({ text: this.total }) : h('span', '123')
           ]
         )
       ]

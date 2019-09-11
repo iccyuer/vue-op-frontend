@@ -55,6 +55,14 @@ const router = {
       meta: {
         title: 'render 函数式组件'
       }
+    },
+    {
+      path: '/render/progress',
+      component: () => import('@/views/render/progress'),
+      name: 'renderProgress',
+      meta: {
+        title: 'el-progress'
+      }
     }
   ]
 }

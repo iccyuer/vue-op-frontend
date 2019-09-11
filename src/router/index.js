@@ -7,6 +7,7 @@ import render from './modules/render'
 import someone from './modules/someone'
 import fetch from './modules/fetch'
 import lbs from './modules/lbs'
+import camera from './modules/camera'
 
 Vue.use(Router)
 
@@ -24,7 +25,8 @@ export const constantRouterMap = [
   render,
   someone,
   fetch,
-  lbs
+  lbs,
+  camera
 ]
 
 export default new Router({
