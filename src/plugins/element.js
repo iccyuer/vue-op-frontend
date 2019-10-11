@@ -7,7 +7,8 @@ import {
   Upload,
   Table,
   TableColumn,
-  Progress
+  Progress,
+  Tree
 } from 'element-ui'
 
 Vue.use(Button)
@@ -18,3 +19,4 @@ Vue.use(Upload)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Progress)
+Vue.use(Tree)

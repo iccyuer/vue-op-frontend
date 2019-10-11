@@ -27,7 +27,7 @@ export default {
   // ak=wVTPtet3h7OGeqZaKLTfOYqpmr2zf7OZ&callback=renderReverse&location=39.927583299999995,116.44323340000001&output=json&pois=1
   methods: {
     getLocation () {
-      if (navigator.geolocation1) {
+      if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((pos) => {
           this.lat = pos.coords.latitude
           this.lng = pos.coords.longitude

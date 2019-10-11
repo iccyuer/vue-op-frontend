@@ -5,6 +5,7 @@
       class="upload-demo"
       action="https://jsonplaceholder.typicode.com/posts/"
       accept="image/*"
+      :before-upload="handleBeforeUpload"
       list-type="picture">
       <el-button size="small" type="primary">点击上传</el-button>
     </el-upload>
@@ -14,9 +15,15 @@
 <script>
 export default {
   mounted () {
-    // capture="camera"  只接受相机，el-upload不接收这个props，只能通过渲染过后再添加这个属性
+    // capture="camera"  只接受相机，el-upload不接收这个props，只能通过渲染过后再dom添加这个属性
     document.getElementsByClassName('upload-demo')[0]
       .getElementsByTagName('input')[0].setAttribute('capture', 'camera')
+  },
+  methods: {
+    handleBeforeUpload (file) {
+      console.log(file)
+      return true
+    }
   }
 }
 </script>

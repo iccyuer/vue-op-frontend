@@ -65,7 +65,7 @@ module.exports = {
   // },
   configureWebpack: config => {
     config.name = name
-    config.resolve.alias =  {
+    config.resolve.alias = {
       '@': resolve('src')
     }
     if (process.env.NODE_ENV === 'production') {

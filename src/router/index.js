@@ -8,6 +8,7 @@ import someone from './modules/someone'
 import fetch from './modules/fetch'
 import lbs from './modules/lbs'
 import camera from './modules/camera'
+import elementui from './modules/elementui'
 
 Vue.use(Router)
 
@@ -26,7 +27,8 @@ export const constantRouterMap = [
   someone,
   fetch,
   lbs,
-  camera
+  camera,
+  elementui
 ]
 
 export default new Router({
