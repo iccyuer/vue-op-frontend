@@ -9,6 +9,7 @@ import fetch from './modules/fetch'
 import lbs from './modules/lbs'
 import camera from './modules/camera'
 import elementui from './modules/elementui'
+import baiduMap from './modules/baiduMap'
 
 Vue.use(Router)
 
@@ -28,7 +29,8 @@ export const constantRouterMap = [
   fetch,
   lbs,
   camera,
-  elementui
+  elementui,
+  baiduMap
 ]
 
 export default new Router({
