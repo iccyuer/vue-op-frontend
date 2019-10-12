@@ -4,7 +4,7 @@
     <button @click="searchLine(0)">驾车</button>
     <button @click="searchLine(1)">公交</button>
     <button @click="searchLine(2)">骑行</button>
-    <button @click="searsearchLinech(3)">步行</button>
+    <button @click="searchLine(3)">步行</button>
     <br />
     <button @click="searchNearBy">搜索周边</button>
     <div id="panelWay"></div>
