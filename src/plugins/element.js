@@ -8,7 +8,8 @@ import {
   Table,
   TableColumn,
   Progress,
-  Tree
+  Tree,
+  Slider
 } from 'element-ui'
 
 Vue.use(Button)
@@ -20,3 +21,4 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Progress)
 Vue.use(Tree)
+Vue.use(Slider)

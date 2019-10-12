@@ -15,6 +15,14 @@ const router = {
       meta: {
         title: 'llipsis'
       }
+    },
+    {
+      path: '/someone/index',
+      component: () => import('@/views/someone/index'),
+      name: 'someoneL',
+      meta: {
+        title: 'props传Functional'
+      }
     }
   ]
 }
