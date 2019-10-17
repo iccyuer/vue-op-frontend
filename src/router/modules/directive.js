@@ -15,6 +15,14 @@ const router = {
       meta: {
         title: 'directiveIndex'
       }
+    },
+    {
+      path: '/directive/disabled',
+      component: () => import('@/views/directive/disabled'),
+      name: 'directiveDisabled',
+      meta: {
+        title: '按钮禁用'
+      }
     }
   ]
 }

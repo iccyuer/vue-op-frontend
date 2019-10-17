@@ -19,7 +19,7 @@ const router = {
     {
       path: '/someone/index',
       component: () => import('@/views/someone/index'),
-      name: 'someoneL',
+      name: 'someoneIndex',
       meta: {
         title: 'props传Functional'
       }

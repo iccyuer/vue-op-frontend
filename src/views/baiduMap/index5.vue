@@ -44,13 +44,13 @@ export default {
       this.mapStatus = "1";
       this.map.clearOverlays();
       // 搜索半径图
-      // const circle = new BMap.Circle(new BMap.Point(116.404, 39.915), 1000, {
-      //   fillColor:"blue",
-      //   strokeWeight: 1,
-      //   fillOpacity: 0.3,
-      //   strokeOpacity: 0.3
-      // })
-      // this.map.addOverlay(circle)
+      const circle = new BMap.Circle(new BMap.Point(116.404, 39.915), 1000, {
+        fillColor:"blue",
+        strokeWeight: 1,
+        fillOpacity: 0.3,
+        strokeOpacity: 0.3
+      })
+      this.map.addOverlay(circle)
       let localSearch = new BMap.LocalSearch(this.map, {
         // 地图渲染搜索结果
         renderOptions: {

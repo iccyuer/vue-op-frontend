@@ -49,6 +49,9 @@ export default {
 
         const formData = new FormData()
         formData.append('file', fileImage)
+        // let params = {
+        //   file: fileImage
+        // }
         testUpload(formData)
 
         // document.body.appendChild(canvas)

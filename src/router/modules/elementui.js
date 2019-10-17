@@ -49,6 +49,14 @@ const router = {
           }
         }
       ]
+    },
+    {
+      path: '/elementui/checkbox',
+      component: () => import('@/views/elementui/checkbox'),
+      name: 'elementuiCheckbox',
+      meta: {
+        title: 'checkbox'
+      }
     }
   ]
 }
