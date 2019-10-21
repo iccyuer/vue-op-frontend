@@ -99,6 +99,7 @@ export default {
 
 <style lang="scss">
 #container {
-  height: 1000px;
+  width: 300px;
+  height: 240px;
 }
 </style>

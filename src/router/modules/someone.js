@@ -23,6 +23,14 @@ const router = {
       meta: {
         title: 'props传Functional'
       }
+    },
+    {
+      path: '/someone/index2',
+      component: () => import('@/views/someone/index2'),
+      name: 'someoneIndex2',
+      meta: {
+        title: 'subway'
+      }
     }
   ]
 }
