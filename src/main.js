@@ -4,6 +4,14 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import './plugins/element.js'
+import * as filters from '@/filters' // 全局filter
+
+console.log('filter', filters)
+
+Object.keys(filters).forEach(key => {
+  console.log('key', key)
+  Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false
 

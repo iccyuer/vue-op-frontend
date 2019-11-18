@@ -10,6 +10,7 @@ import lbs from './modules/lbs'
 import camera from './modules/camera'
 import elementui from './modules/elementui'
 import baiduMap from './modules/baiduMap'
+import filters from './modules/filters'
 
 Vue.use(Router)
 
@@ -30,7 +31,8 @@ export const constantRouterMap = [
   lbs,
   camera,
   elementui,
-  baiduMap
+  baiduMap,
+  filters
 ]
 
 export default new Router({
