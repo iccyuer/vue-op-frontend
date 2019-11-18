@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import number from '@/directives/number/number'
+// import number from '@/directives/number/number'
 import disabled from '@/directives/buttonDisabled/disabled.js'
 export default {
   directives: {

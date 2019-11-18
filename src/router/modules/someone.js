@@ -31,6 +31,14 @@ const router = {
       meta: {
         title: 'subway'
       }
+    },
+    {
+      path: '/someone/rolling',
+      component: () => import('@/views/someone/rolling'),
+      name: 'someoneRolling',
+      meta: {
+        title: 'rolling'
+      }
     }
   ]
 }
