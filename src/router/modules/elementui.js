@@ -57,6 +57,14 @@ const router = {
       meta: {
         title: 'checkbox'
       }
+    },
+    {
+      path: '/elementui/pagination',
+      component: () => import('@/views/elementui/pagination'),
+      name: 'elementuiPagination',
+      meta: {
+        title: 'pagination'
+      }
     }
   ]
 }

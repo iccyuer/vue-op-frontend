@@ -6,7 +6,7 @@ import './registerServiceWorker'
 import './plugins/element.js'
 import * as filters from '@/filters' // 全局filter
 
-console.log('filter', filters)
+import '@/style/var.scss'
 
 Object.keys(filters).forEach(key => {
   console.log('key', key)

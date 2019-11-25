@@ -74,11 +74,25 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
+    // 引入全局sass变量
+    const oneOfsMap = config.module.rule('scss').oneOfs.store
+    oneOfsMap.forEach(item => {
+      item
+        .use('sass-resources-loader')
+        .loader('sass-resources-loader')
+        .options({
+          // Provide path to the file with resources
+          resources: './src/style/var.scss'
+        })
+        .end()
+    })
+
     config
       .when(process.env.NODE_ENV === 'production',
         config => {
         }
       )
+
     config
       .when(process.env.NODE_ENV === 'development',
         config => {
@@ -92,5 +106,18 @@ module.exports = {
           })
         }
       )
+
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    
+    config.module
+    .rule('js')
+    // .test(/\.js$/)
+    .use('babel-loader')
+    .loader('babel-loader')
+    .end()
   }
 }

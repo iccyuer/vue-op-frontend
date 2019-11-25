@@ -63,6 +63,14 @@ const router = {
       meta: {
         title: 'el-progress'
       }
+    },
+    {
+      path: '/render/index7',
+      component: () => import('@/views/render/index7'),
+      name: 'renderIndex7',
+      meta: {
+        title: 'render .js'
+      }
     }
   ]
 }

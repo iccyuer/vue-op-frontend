@@ -11,7 +11,8 @@ import {
   TableColumn,
   Progress,
   Tree,
-  Slider
+  Slider,
+  Pagination
 } from 'element-ui'
 
 Vue.use(Button)
@@ -26,3 +27,4 @@ Vue.use(TableColumn)
 Vue.use(Progress)
 Vue.use(Tree)
 Vue.use(Slider)
+Vue.use(Pagination)

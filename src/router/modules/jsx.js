@@ -55,6 +55,14 @@ const router = {
       meta: {
         title: 'jsx 组件'
       }
+    },
+    {
+      path: '/jsx/index6',
+      component: () => import('@/views/jsx/index6'),
+      name: 'jsxIndex6',
+      meta: {
+        title: 'jsx .js'
+      }
     }
   ]
 }

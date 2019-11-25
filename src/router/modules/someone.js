@@ -39,6 +39,14 @@ const router = {
       meta: {
         title: 'rolling'
       }
+    },
+    {
+      path: '/someone/global_vars',
+      component: () => import('@/views/someone/globalVars'),
+      name: 'someoneGlobalVars',
+      meta: {
+        title: '全局sass变量'
+      }
     }
   ]
 }
