@@ -8,6 +8,9 @@ import * as filters from '@/filters' // 全局filter
 
 import '@/style/var.scss'
 
+// EventBus
+Vue.prototype.$vbus = new Vue()
+
 Object.keys(filters).forEach(key => {
   console.log('key', key)
   Vue.filter(key, filters[key])

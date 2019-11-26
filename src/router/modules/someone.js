@@ -47,6 +47,14 @@ const router = {
       meta: {
         title: '全局sass变量'
       }
+    },
+    {
+      path: '/someone/communication',
+      component: () => import('@/views/someone/communication'),
+      name: 'someoneCommunication',
+      meta: {
+        title: '组件间通信'
+      }
     }
   ]
 }
