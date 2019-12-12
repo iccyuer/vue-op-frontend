@@ -12,7 +12,6 @@ import '@/style/var.scss'
 Vue.prototype.$vbus = new Vue()
 
 Object.keys(filters).forEach(key => {
-  console.log('key', key)
   Vue.filter(key, filters[key])
 })
 

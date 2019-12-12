@@ -1,9 +1,9 @@
 import fullLayout from '@/components/layout/full-layout.vue'
 // import Vue from 'vue'
 import Vue from 'vue/dist/vue.esm.js'
-console.log(new Vue({
-  render: h => h('<router-view></router-view>')
-}))
+// console.log(new Vue({
+//   render: h => h('<router-view></router-view>')
+// }))
 const router = {
   path: '/elementui',
   component: fullLayout,
@@ -64,6 +64,14 @@ const router = {
       name: 'elementuiPagination',
       meta: {
         title: 'pagination'
+      }
+    },
+    {
+      path: '/elementui/form',
+      component: () => import('@/views/elementui/form'),
+      name: 'elementuiForm',
+      meta: {
+        title: 'form 校验'
       }
     }
   ]

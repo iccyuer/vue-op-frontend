@@ -12,7 +12,11 @@ import {
   Progress,
   Tree,
   Slider,
-  Pagination
+  Pagination,
+  Dialog,
+  Form,
+  FormItem,
+  Input
 } from 'element-ui'
 
 Vue.use(Button)
@@ -28,3 +32,7 @@ Vue.use(Progress)
 Vue.use(Tree)
 Vue.use(Slider)
 Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)

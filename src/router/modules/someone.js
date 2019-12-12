@@ -55,6 +55,14 @@ const router = {
       meta: {
         title: '组件间通信'
       }
+    },
+    {
+      path: '/someone/ast',
+      component: () => import('@/views/someone/ast'),
+      name: 'someoneAst',
+      meta: {
+        title: 'AST'
+      }
     }
   ]
 }
