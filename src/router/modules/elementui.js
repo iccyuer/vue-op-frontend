@@ -73,6 +73,14 @@ const router = {
       meta: {
         title: 'form 校验'
       }
+    },
+    {
+      path: '/elementui/upload',
+      component: () => import('@/views/elementui/upload'),
+      name: 'elementuiUpload',
+      meta: {
+        title: 'upload'
+      }
     }
   ]
 }
