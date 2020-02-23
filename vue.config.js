@@ -39,6 +39,10 @@ module.exports = {
         pathRewrite: {
           ['^/baidumap']: ''
         }
+      },
+      '/api': {
+        target: 'http://192.168.199.195:4006',
+        changeOrigin: true
       }
     },
     // after: require('./mock/mock-server.js')

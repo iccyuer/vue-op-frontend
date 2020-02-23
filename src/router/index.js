@@ -11,6 +11,7 @@ import camera from './modules/camera'
 import elementui from './modules/elementui'
 import baiduMap from './modules/baiduMap'
 import filters from './modules/filters'
+import build from './modules/build'
 
 Vue.use(Router)
 
@@ -32,7 +33,8 @@ export const constantRouterMap = [
   camera,
   elementui,
   baiduMap,
-  filters
+  filters,
+  build
 ]
 
 export default new Router({
