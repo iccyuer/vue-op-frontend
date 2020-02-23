@@ -6,6 +6,7 @@
       action="https://jsonplaceholder.typicode.com/posts/"
       :before-upload="beforeUpload"
       :before-remove="beforeRemove"
+      :on-remove="onRemove"
       :on-success="uploadFile"
       :file-list="form.attachments">
       <el-button size="small" style="color:#FF5000"> 上传</el-button>
@@ -65,37 +66,43 @@ export default {
     beforeRemove (file, fileList) {
       console.log(fileList)
       console.log(file)
-      // if (file && file.status === 'success') {
-      //   console.log(this.form.attachments.indexOf(file))
-      //   this.$confirm(`确定移除 ${file.name}？`)
-      //   this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
-      //   console.log(this.form.attachments)
-      //   return
-      return this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        console.log(this.form.attachments.indexOf(file))
-        // 删除的时候把attachments里面的对象删掉
-        this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
-        // this.$set(this.form, 'attachments', this.form.attachments.splice(this.form.attachments.indexOf(file), 1))
-        // this.form.attachments.pop()
-        console.log('delete', this.form.attachments)
-        this.$message({
-          type: 'success',
-          message: '删除成功!'
-        })
-      }).catch(() => {
-        console.log('delete', this.form.attachments)
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
+      // return this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+      //   confirmButtonText: '确定',
+      //   cancelButtonText: '取消',
+      //   type: 'warning'
+      // })
+      return new Promise((resolve, reject) => {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          console.log(this.form.attachments.indexOf(file))
+          // 删除的时候把attachments里面的对象删掉
+          // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
+          // this.$set(this.form, 'attachments', this.form.attachments.splice(this.form.attachments.indexOf(file), 1))
+          // this.form.attachments.pop()
+          console.log('delete', this.form.attachments)
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+          resolve(true)
+        // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
+        }).catch(() => {
+          console.log('delete', this.form.attachments)
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+          reject()
         })
       })
-      // } else {
-      //   return false
-      // }
+    },
+    onRemove (file, fileList) {
+      console.log('onremove', file, fileList)
+      this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
+      console.log('delete', this.form.attachments)
     }
   }
 }
