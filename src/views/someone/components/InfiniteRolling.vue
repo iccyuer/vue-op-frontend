@@ -61,7 +61,8 @@ export default {
         this.translateSit = 'translate3d(' + -offset + 'px, 0px, 0px)'
         // this.scroller.style = 'transform: translate3d(' + -offset + 'px, 0px, 0px);';
       } else {
-        this.translateSit = 'translate3d(' + (translateX - this.speed) + 'px, 0px, 0px)'
+        this.translateSit =
+          'translate3d(' + (translateX - this.speed) + 'px, 0px, 0px)'
         // this.scroller.style = 'transform: translate3d(' + (translateX - this.speed) + 'px, 0px, 0px);';
       }
       window.requestAnimationFrame(() => {
@@ -71,7 +72,9 @@ export default {
     // 获取计算后的translateX
     getComputedTranslateX (dom) {
       let startX = 0
-      let style = window.getComputedStyle ? window.getComputedStyle(dom, null) : null || dom.currentStyle
+      let style = window.getComputedStyle
+        ? window.getComputedStyle(dom, null)
+        : null || dom.currentStyle
       let matrix = style['transform']
       if (matrix && matrix !== 'none') {
         startX = Number(matrix.replace(/matrix\(|\)/g, '').split(',')[4])
@@ -81,7 +84,9 @@ export default {
     getComputedTranslateX2 (translateSit) {
       if (translateSit) {
         let startX = 0
-        startX = Number(translateSit.replace(/translate3d\(|\)|px/g, '').split(',')[0])
+        startX = Number(
+          translateSit.replace(/translate3d\(|\)|px/g, '').split(',')[0]
+        )
         return startX
       }
     }
@@ -90,14 +95,14 @@ export default {
 </script>
 
 <style lang="scss">
-  .infinite-wrapper{
+  .infinite-wrapper {
     overflow-x: hidden;
     white-space: nowrap;
-    .infinite-scroller-me{
+    .infinite-scroller-me {
       display: inline-block;
       margin: 0;
       padding: 0;
-      .item{
+      .item {
         display: inline-block;
       }
     }

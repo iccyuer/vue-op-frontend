@@ -23,11 +23,11 @@ export default {
 </script>
 
 <style lang="scss">
-	.rolling{
-		.infinite-wrapper{
-			li{
-				padding: 0 10px;
-			}
-		}
-	}
+  .rolling {
+    .infinite-wrapper {
+      li {
+        padding: 0 10px;
+      }
+    }
+  }
 </style>

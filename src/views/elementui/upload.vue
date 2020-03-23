@@ -8,8 +8,9 @@
       :before-remove="beforeRemove"
       :on-remove="onRemove"
       :on-success="uploadFile"
-      :file-list="form.attachments">
-      <el-button size="small" style="color:#FF5000"> 上传</el-button>
+      :file-list="form.attachments"
+    >
+      <el-button size="small" style="color:#FF5000">上传</el-button>
     </el-upload>
   </div>
 </template>
@@ -55,7 +56,10 @@ export default {
       console.log('9999999999999999999999', response)
       console.log('88888888888888888', file)
       console.log(fileList.response)
-      this.form.attachments.push({ name: file.name, id: response.id + Math.random() })
+      this.form.attachments.push({
+        name: file.name,
+        id: response.id + Math.random()
+      })
       // fileList.response.data.forEach((item, index) => {
       //   this.form.attachments.push({ name: item.fileName, url: item.downloadUrl })
       // })
@@ -76,27 +80,29 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
-        }).then(() => {
-          console.log(this.form.attachments.indexOf(file))
-          // 删除的时候把attachments里面的对象删掉
-          // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
-          // this.$set(this.form, 'attachments', this.form.attachments.splice(this.form.attachments.indexOf(file), 1))
-          // this.form.attachments.pop()
-          console.log('delete', this.form.attachments)
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          })
-          resolve(true)
-        // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
-        }).catch(() => {
-          console.log('delete', this.form.attachments)
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          })
-          reject()
         })
+          .then(() => {
+            console.log(this.form.attachments.indexOf(file))
+            // 删除的时候把attachments里面的对象删掉
+            // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
+            // this.$set(this.form, 'attachments', this.form.attachments.splice(this.form.attachments.indexOf(file), 1))
+            // this.form.attachments.pop()
+            console.log('delete', this.form.attachments)
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+            resolve(true)
+            // this.form.attachments.splice(this.form.attachments.indexOf(file), 1)
+          })
+          .catch(() => {
+            console.log('delete', this.form.attachments)
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+            // reject()
+          })
       })
     },
     onRemove (file, fileList) {
@@ -109,5 +115,4 @@ export default {
 </script>
 
 <style>
-
 </style>

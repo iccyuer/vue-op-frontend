@@ -22,6 +22,8 @@
 
 <script>
 import CompChild from './components/CompChild'
+import EventBus from './components/EventBus.js'
+console.log('EventBus1', EventBus)
 export default {
   components: {
     CompChild
@@ -31,7 +33,8 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$vbus.$emit('comm', 123)
+      // this.$vbus.$emit('comm', 123)
+      EventBus.$emit('comm', 123)
     }
   }
 }
