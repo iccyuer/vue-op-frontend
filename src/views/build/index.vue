@@ -14,10 +14,23 @@ export default {
       socket: null
     }
   },
-  created () {
-    this.initSocket()
+  async created () {
+    // this.initSocket();
+    console.log('created-begin')
+    await this.sleep()
+    // console.log('created-end')
+  },
+  mounted () {
+    console.log('mounted')
   },
   methods: {
+    sleep (s) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise resolved')
+        }, s * 1000)
+      })
+    },
     initSocket () {
       this.socket = io('ws://192.168.199.195:4006/web', {
         query: { id: 1 }

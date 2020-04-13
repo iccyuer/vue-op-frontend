@@ -63,6 +63,14 @@ const router = {
       meta: {
         title: 'AST'
       }
+    },
+    {
+      path: '/someone/for',
+      component: () => import('@/views/someone/for'),
+      name: 'for循环',
+      meta: {
+        title: 'for'
+      }
     }
   ]
 }
