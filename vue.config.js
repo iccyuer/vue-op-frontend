@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 const path = require('path')
 
 function resolve(dir) {
@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 const name = 'vue' // page title
-const port = 9528 // dev port
+const port = 8888 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -16,6 +16,7 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
+    // https: true,
     port: port,
     open: true,
     overlay: {
@@ -31,6 +32,17 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
+      },
+      'baidumap': {
+        target: 'https://api.map.baidu.com',
+        changeOrigin: true,
+        pathRewrite: {
+          ['^/baidumap']: ''
+        }
+      },
+      '/api': {
+        target: 'http://192.168.199.195:4006',
+        changeOrigin: true
       }
     },
     // after: require('./mock/mock-server.js')
@@ -41,24 +53,75 @@ module.exports = {
       console.log('after')
     }
   },
-  configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
+  /*
+    configureWebpack的配合有两种形式
+    1.插件形式 2.函数形式
+  */
+  // configureWebpack: {
+  //   // provide the app's title in webpack's name field, so that
+  //   // it can be accessed in index.html to inject the correct title.
+  //   name: name,
+  //   resolve: {
+  //     alias: {
+  //       '@': resolve('src')
+  //     }
+  //   }
+  // },
+  configureWebpack: config => {
+    config.name = name
+    config.resolve.alias = {
+      '@': resolve('src')
+    }
+    if (process.env.NODE_ENV === 'production') {
+      // 去掉console.log
+      config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
     }
   },
   chainWebpack: (config) => {
-    // auto fix on save
+    // 引入全局sass变量
+    const oneOfsMap = config.module.rule('scss').oneOfs.store
+    oneOfsMap.forEach(item => {
+      item
+        .use('sass-resources-loader')
+        .loader('sass-resources-loader')
+        .options({
+          // Provide path to the file with resources
+          resources: './src/style/var.scss'
+        })
+        .end()
+    })
+
+    config
+      .when(process.env.NODE_ENV === 'production',
+        config => {
+        }
+      )
+
+    config
+      .when(process.env.NODE_ENV === 'development',
+        config => {
+          // auto fix on save
+          config.module
+          .rule('eslint')
+          .use('eslint-loader')
+          .tap((options) => {
+            options.fix = true
+            return options
+          })
+        }
+      )
+
+    // set svg-sprite-loader
     config.module
-      .rule('eslint')
-      .use('eslint-loader')
-      .tap((options) => {
-        options.fix = true
-        return options
-      })
-    }
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    
+    config.module
+    .rule('js')
+    // .test(/\.js$/)
+    .use('babel-loader')
+    .loader('babel-loader')
+    .end()
+  }
 }
